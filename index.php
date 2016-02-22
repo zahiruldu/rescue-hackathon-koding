@@ -5,7 +5,7 @@ session_start();
 require_once('app/functions.php');
 
 require_once('vendor/autoload.php');
-
+$user_id ="";
 
 if (isset($_POST['lati']) && isset($_POST['longi'])) {
 	$latitude   = $_POST['lati'];
@@ -56,14 +56,18 @@ if (isset($_POST['lati']) && isset($_POST['longi'])) {
   </head>
   <body ng-app="rescueApp">
     
-    <div class="container">
+    <div class="container" ng-controller="profileCtrl" ng-init="getProfile()">
     <?php  require_once('menu.php'); ?>
     <h1>Rescue Me Application . Hackathon 2016</h1>
 
 	    <form role="form" method="post" action="">
 	    	<div class="form-group">
 	    		<label>Your Name:</label>
-	    		<input type="text" class="form-control" name="name" value="" placeholder="Your Name">
+	    		<?php if(!empty($_SESSION['user_id'])){?>
+	    		<input type="text" class="form-control" name="name"  ng-value="fullname" value="" placeholder="Your Name" value="{{firstname}}">
+	    		<?php }else{?>
+	    		<input type="text" class="form-control" name="name"  value="" placeholder="Your Name" value="">
+	    		<?php }?>
 	    		
 	    	</div>
 		    <div class="form-group">
@@ -77,9 +81,19 @@ if (isset($_POST['lati']) && isset($_POST['longi'])) {
 		      	<option value="help">I am in Help</option>
 		      </select>
 		    </div>
+		    <?php if(!empty($_SESSION['user_id'])){?>
+		    <div >
+		    <input type="hidden" ng-value="lati" id="latitude" name="lati" value="" />
+		    <input type="hidden" ng-value="longi" id="longitude" name="longi" value="" />
+		    </div>
+		    <?php }else{?>
+		    <div ng-init="getGEO()">
+		    {{test}}
+		    <input type="hidden" ng-value="lati" id="latitud" name="lati" value="" />
+		    <input type="hidden" ng-value="longi"  id="longitud" name="longi" value="" />
+		    </div>
 
-		    <input type="hidden" id="latitude" name="lati" value="" />
-		    <input type="hidden" id="longitude" name="longi" value="" />
+		    <?php }?>
 		    
 		    
 		    <button type="submit" class="btn btn-default">Help Me</button>

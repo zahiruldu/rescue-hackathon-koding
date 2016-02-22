@@ -20,16 +20,29 @@ app.controller('profileCtrl', function($scope, $http) {
  	var getlongi ='';
 	// Getting the position
 	function Position(position){
-		 getlati = position.coords.latitude;
-		 getlongi = position.coords.longitude;
+		var getlati = position.coords.latitude;
+		 var getlongi = position.coords.longitude;
+
+		 
 		console.log('Lati profile:'+position.coords.latitude);
 		console.log('LOong:'+position.coords.longitude);
 		document.getElementById("latitude").value = position.coords.latitude;
 		document.getElementById("longitude").value = position.coords.longitude;
 	}
 
-
-
+	  $scope.getGEO = function(){
+	  		   if (navigator.geolocation) {
+				    navigator.geolocation.getCurrentPosition(function(position){
+				    	$scope.lati = position.coords.latitude;
+				    	$scope.longi = position.coords.longitude;
+				    	console.log('wow'+position.coords.longitude)
+				      $scope.$apply(function(){
+				        $scope.position = position;
+				      });
+				    });
+				  }		
+	  }
+	
 		// Getting profile information
 	  $scope.getProfile = function(){
 	  	
@@ -43,6 +56,9 @@ app.controller('profileCtrl', function($scope, $http) {
 		      $scope.mobile = profile.mobile;
 		      $scope.lati = profile.latitude;
 		      $scope.longi = profile.longitude;
+
+		      $scope.fullname = $scope.firstname + " "+ $scope.lastname;
+
 		      
 
 		      console.log('profile init:'+$scope.lati);

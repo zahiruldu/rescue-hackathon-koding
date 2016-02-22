@@ -13,3 +13,4 @@
 <script src="app/js/registerCtrl.js"></script>
 <script src="app/js/loginCtrl.js"></script>
 <script src="app/js/profileCtrl.js"></script>
+<script src="app/js/friendCtrl.js"></script>

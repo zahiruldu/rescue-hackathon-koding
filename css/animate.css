@@ -17,3 +17,11 @@
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
 
  }
+
+
+ #mapdiv {
+    margin: 0;
+    padding: 0;
+    width: 500px;
+    height: 500px;
+}

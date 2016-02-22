@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Rescue Me</a>
+      <a class="navbar-brand" href="index.php">Rescue Me</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -109,7 +109,7 @@
       </div>
       <div class="modal-footer">
        
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         
         <input type="submit" class="btn btn-primary" id="submit" value="Register" />
       </div>
@@ -149,7 +149,7 @@
       </div>
       <div class="modal-footer">
        
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         
         <input type="submit" class="btn btn-primary" id="submit" value="Login" />
       </div>
