@@ -61,6 +61,10 @@ $user_id = $_SESSION['user_id'];
                   <label>mobile:</label>
                   <input type="tel" class="form-control" ng-model="mobile" placeholder="contact number" value="{{profile.mobile}}">
                 </div>
+                <div ng-init="getGEO()">
+                <input type="hidden" ng-value="lati" id="latitude" name="lati" value="" />
+                <input type="hidden" ng-value="longi" id="longitude" name="longi" value="" />
+                </div>
                 
                 
              

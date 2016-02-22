@@ -78,8 +78,8 @@ app.controller('profileCtrl', function($scope, $http) {
 	  			lastname: $scope.lastname,
 	  			email: $scope.email,
 	  			mobile:$scope.mobile,
-	  			latitude:getlati,
-	  			longitude:getlongi,
+	  			latitude:$scope.lati,
+	  			longitude:$scope.longi,
 	  			pass:$scope.pass,
 	  			
 	  		}
